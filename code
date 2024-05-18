@@ -1,0 +1,19 @@
+// Define IR sensor pin
+const int irSensorPin = D1; // D1 on NodeMCU corresponds to GPIO 5
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(irSensorPin, INPUT);
+}
+
+void loop() {
+  int irSensorValue = digitalRead(irSensorPin);
+  
+  if (irSensorValue == LOW) {
+    Serial.println("Object detected!");
+  } else {
+    Serial.println("No object detected.");
+  }
+  
+  delay(1000); // Adjust the delay as needed for your application
+}
